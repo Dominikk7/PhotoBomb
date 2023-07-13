@@ -63,9 +63,10 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Next, create a new user entry for the database
+	defaultTime := time.Now()
 
 	// ADD IN SESSION AND SESHEXP
-	newUser := models.User{Username: creds.Username, HashWord: string(hashedPassword)}
+	newUser := models.User{Username: creds.Username, HashWord: string(hashedPassword), SeshExp: defaultTime}
 
 	// Now add to DB
 

@@ -11,7 +11,7 @@ import (
 const DB_USERNAME = "root"
 const DB_NAME_I = "images"
 const DB_NAME_U = "users"
-const DB_HOST = "172.17.0.2"
+const DB_HOST = "172.17.0.2" //172.17.0.2 127.0.0.1
 const DB_PORT = "3306"
 
 var ImageInstance *gorm.DB
