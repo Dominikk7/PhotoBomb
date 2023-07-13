@@ -38,7 +38,7 @@ export class PhotoComponent implements OnInit{
 
     
   Decode1(){
-    this.httpClient.get("http://"+this.ipAddy+"/decode/?timestamp="+this.timestamp,
+    this.httpClient.get(this.ipAddy+"/decode/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{
@@ -62,7 +62,7 @@ export class PhotoComponent implements OnInit{
 
     Delete(){
       console.log("delete");
-      this.httpClient.delete("http://"+this.ipAddy+"/delete/?timestamp="+this.timestamp,
+      this.httpClient.delete(this.ipAddy+"/delete/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{

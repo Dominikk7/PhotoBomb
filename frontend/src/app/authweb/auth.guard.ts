@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot) {
     console.log("Authgaurd");
-    this.httpClient.get('https://'+ipAddress.ip+':4200/user-session') //'http://'+ipAddress.ip+':8080/user-session')
+    this.httpClient.get(ipAddress.ip+':4200/user-session') //'http://'+ipAddress.ip+':8080/user-session')
     .subscribe((res) => {
         console.log(res, 'AuthGuard')
     })

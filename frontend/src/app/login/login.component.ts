@@ -52,7 +52,7 @@ export class LoginComponent {
   login(){
     this.submitted = true;
     type cookieData = 'session_token' | 'sessionToken' | 'expiresAt';
-    this.httpClient.post<{session_token: string, sessionToken: string, expiresAt: string}>('http://'+ this.ipAddy + '/signin1',  { //http://'+ this.ipAddy + ':8080/signin
+    this.httpClient.post<{session_token: string, sessionToken: string, expiresAt: string}>(this.ipAddy + '/signin1',  { //http://'+ this.ipAddy + ':8080/signin
       withCredentials: true,  
       username: this.loginUsername,
       password: this.loginPassword

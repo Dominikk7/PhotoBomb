@@ -54,7 +54,7 @@ export class UploadComponent {
 
   getDecoded(){
     console.log("Sent");
-    return this.httpClient.post('http://' + this.ipAddy +'/upload/decode', this.formData, //8080
+    return this.httpClient.post(this.ipAddy +'/upload/decode', this.formData, //8080
     {
       withCredentials: true,
       
@@ -63,7 +63,7 @@ export class UploadComponent {
 
   getEncoded(){
     console.log("Sent");
-    return this.httpClient.post('http://' + this.ipAddy +'/upload/encode', this.formData, //8080
+    return this.httpClient.post(this.ipAddy +'/upload/encode', this.formData, //8080
     {
       withCredentials: true
     });

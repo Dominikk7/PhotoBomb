@@ -26,7 +26,7 @@ export class AlbumDecodeComponent implements OnInit{
     Init() {
       console.log(this.timestamp + "test");
 
-      this.httpClient.get("http://" + ipAddress.ipFull +"/decode/?timestamp="+this.timestamp,
+      this.httpClient.get(ipAddress.ipFull +"/decode/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{

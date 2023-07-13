@@ -42,7 +42,7 @@ export class AlbumComponent {
 
   getImageList(){
     console.log("Sent");
-    return this.httpClient.get('http://' + this.ipAddy +'/download/list/',
+    return this.httpClient.get(this.ipAddy +'/download/list/',
     {
       withCredentials: true
     });
@@ -53,7 +53,7 @@ export class AlbumComponent {
     this.getImageList().subscribe(images => {
       this.imageTest = JSON.parse(JSON.stringify(images));;
       for(let image in this.imageTest){
-        var url = "http://"+ this.ipAddy + "/download/?timestamp="
+        var url = this.ipAddy + "/download/?timestamp="
         var timestamp = this.imageTest[image].timestamp;
         this.displayImageList.push(url + timestamp)
       }

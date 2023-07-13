@@ -43,7 +43,7 @@ export class RegisterComponent {
   register(){
     this.submitted = true;
     console.log(this.registerUsername, this.registerPassword)
-    this.httpClient.post('http://'+ipAddress.ipFull+'/signup1', {
+    this.httpClient.post(ipAddress.ipFull+'/signup1', {
       //username for now
       username: this.registerUsername,
       password: this.registerPassword
