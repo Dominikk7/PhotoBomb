@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PhotoComponent } from '../photo/photo.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { ipAddress } from '../../../ip.conf';
 
 @Component({
   selector: 'app-album-decode',
@@ -25,7 +26,7 @@ export class AlbumDecodeComponent implements OnInit{
     Init() {
       console.log(this.timestamp + "test");
 
-      this.httpClient.get("http://localhost:4200/decode/?timestamp="+this.timestamp,
+      this.httpClient.get("http://" + ipAddress.ipFull +"/decode/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{

@@ -18,6 +18,17 @@
       "target": "http://localhost:8080",
       "secure": false,
       "changeOrigin": true
+    },
+    "/signup1": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "changeOrigin": true
+    },
+    "/signin1": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
     }
     
   }

@@ -4,7 +4,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { imageObj } from './imageObj';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PhotoComponent } from '../photo/photo.component';
-
+import { ipAddress } from '../../../ip.conf';
 
 @Component({
   selector: 'app-album',
@@ -13,7 +13,7 @@ import { PhotoComponent } from '../photo/photo.component';
 })
 export class AlbumComponent {
   fileName = '';
-  ipAddy = 'localhost';
+  ipAddy = ipAddress.ipFull;//localhost
   formData = new FormData();
   hide = true;
   message!: string;
@@ -42,7 +42,7 @@ export class AlbumComponent {
 
   getImageList(){
     console.log("Sent");
-    return this.httpClient.get('http://' + this.ipAddy +':4200/download/list/',
+    return this.httpClient.get('http://' + this.ipAddy +'/download/list/',
     {
       withCredentials: true
     });
@@ -53,7 +53,7 @@ export class AlbumComponent {
     this.getImageList().subscribe(images => {
       this.imageTest = JSON.parse(JSON.stringify(images));;
       for(let image in this.imageTest){
-        var url = "http://localhost:4200/download/?timestamp="
+        var url = "http://"+ this.ipAddy + "/download/?timestamp="
         var timestamp = this.imageTest[image].timestamp;
         this.displayImageList.push(url + timestamp)
       }

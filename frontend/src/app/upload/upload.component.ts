@@ -5,6 +5,7 @@ import { DecodeComponent } from '../decode/decode.component';
 import { EncodeComponent } from '../encode/encode.component';
 import { Observable } from 'rxjs/internal/Observable';
 import { imageObj } from '../album/imageObj';
+import { ipAddress } from '../../../ip.conf';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class UploadComponent {
   
 
   fileName = '';
-  ipAddy = 'localhost';
+  ipAddy = ipAddress.ipFull;
   formData = new FormData();
   hide = true;
   message!: string;
@@ -53,7 +54,7 @@ export class UploadComponent {
 
   getDecoded(){
     console.log("Sent");
-    return this.httpClient.post('http://' + this.ipAddy +':4200/upload/decode', this.formData, //8080
+    return this.httpClient.post('http://' + this.ipAddy +'/upload/decode', this.formData, //8080
     {
       withCredentials: true,
       
@@ -62,7 +63,7 @@ export class UploadComponent {
 
   getEncoded(){
     console.log("Sent");
-    return this.httpClient.post('http://' + this.ipAddy +':4200/upload/encode', this.formData, //8080
+    return this.httpClient.post('http://' + this.ipAddy +'/upload/encode', this.formData, //8080
     {
       withCredentials: true
     });

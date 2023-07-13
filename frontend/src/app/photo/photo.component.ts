@@ -5,6 +5,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { AlbumDecodeComponent } from '../album-decode/album-decode.component';
 import { ExistDecodeComponent } from '../exist-decode/exist-decode.component';
 import { ComponentType } from '@angular/cdk/portal';
+import { ipAddress } from '../../../ip.conf';
 
 @Component({
   selector: 'app-photo',
@@ -15,7 +16,7 @@ export class PhotoComponent implements OnInit{
   public service!: AlbumComponent;
   photoURL! : string;
   timestamp!: string;
-  ipAddy = 'localhost';
+  ipAddy = ipAddress.ipFull;
   imageText= "";
   hide = true;
 
@@ -32,12 +33,12 @@ export class PhotoComponent implements OnInit{
 
   Init(){
     this.photoURL = this.service.photoURL;
-    this.timestamp = this.photoURL.substring(42);
+    this.timestamp = this.photoURL.substring(this.photoURL.lastIndexOf("=")+1);
   }
 
     
   Decode1(){
-    this.httpClient.get("http://localhost:4200/decode/?timestamp="+this.timestamp,
+    this.httpClient.get("http://"+this.ipAddy+"/decode/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{
@@ -61,7 +62,7 @@ export class PhotoComponent implements OnInit{
 
     Delete(){
       console.log("delete");
-      this.httpClient.delete("http://localhost:4200/delete/?timestamp="+this.timestamp,
+      this.httpClient.delete("http://"+this.ipAddy+"/delete/?timestamp="+this.timestamp,
       {
         withCredentials: true
       }).subscribe((rslt:Object)=>{

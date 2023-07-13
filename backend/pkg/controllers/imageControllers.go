@@ -14,10 +14,10 @@ import (
 	"strings"
 
 	"github.com/auyer/steganography"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/auth"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/database"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/models"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/utils"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/auth"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/database"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/models"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/utils"
 )
 
 func ImageCreate(w http.ResponseWriter, r *http.Request) { // uploads image into db

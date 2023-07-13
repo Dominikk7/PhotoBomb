@@ -23,7 +23,7 @@ Dominik Kapuscinski
 ## Usage
 First clone the project locally
 ```
-git clone https://github.com/tannergarcia/PhotoBomb
+git clone https://github.com/Dominikk7/PhotoBomb
 ```
 Next, start a MySQL instance.
 

@@ -15,9 +15,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/auth"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/database"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/models"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/auth"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/database"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/models"
 )
 
 

@@ -7,12 +7,16 @@ import { StorageService } from '../authweb/storage.service';
 import { CookieModel } from './cookie.model';
 import { map } from 'rxjs/operators';
 
+import { ipAddress } from '../../../ip.conf';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  ipAddy = ipAddress.ipFull; //localhost
+  
   isLogin: boolean = false
   loginUsername: string | null = null
   loginPassword: string | null = null
@@ -48,7 +52,7 @@ export class LoginComponent {
   login(){
     this.submitted = true;
     type cookieData = 'session_token' | 'sessionToken' | 'expiresAt';
-    this.httpClient.post<{session_token: string, sessionToken: string, expiresAt: string}>('http://localhost:8080/signin',  {
+    this.httpClient.post<{session_token: string, sessionToken: string, expiresAt: string}>('http://'+ this.ipAddy + '/signin1',  { //http://'+ this.ipAddy + ':8080/signin
       withCredentials: true,  
       username: this.loginUsername,
       password: this.loginPassword

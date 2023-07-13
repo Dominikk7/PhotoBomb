@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ipAddress } from '../../../ip.conf';
 
 @Component({
   selector: 'app-register',
@@ -42,7 +43,7 @@ export class RegisterComponent {
   register(){
     this.submitted = true;
     console.log(this.registerUsername, this.registerPassword)
-    this.httpClient.post('http://localhost:8080/signup', {
+    this.httpClient.post('http://'+ipAddress.ipFull+'/signup1', {
       //username for now
       username: this.registerUsername,
       password: this.registerPassword

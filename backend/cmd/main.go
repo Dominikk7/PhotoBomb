@@ -4,20 +4,29 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/controllers"
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/database"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/controllers"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/database"
 
-	"github.com/tannergarcia/PhotoBomb/backend/pkg/auth"
+	"github.com/Dominikk7/PhotoBomb/backend/pkg/auth"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
+	"os"
 )
 
 const PORT = "8080"
 
 func main() {
+	//DB password from cli
+	var sqlPass string
+	if (len(os.Args) < 2){
+		sqlPass = ""
+	} else{
+		sqlPass = os.Args[1]
+	}
+	
 	// Initialize Database
-	database.Connect()
+	database.Connect(sqlPass)
 	database.Migrate()
 
 	//Init router
@@ -42,8 +51,8 @@ func main() {
 }
 func RegisterRoutes(r *mux.Router) {
 	//User login
-	r.HandleFunc("/signin", auth.Signin).Methods("POST")
-	r.HandleFunc("/signup", auth.Signup).Methods("POST")
+	r.HandleFunc("/signin1", auth.Signin).Methods("POST")
+	r.HandleFunc("/signup1", auth.Signup).Methods("POST")
 	r.HandleFunc("/logout", auth.Logout).Methods("POST")
 
 	//Image upload

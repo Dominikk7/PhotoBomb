@@ -1,4 +1,4 @@
-module github.com/tannergarcia/PhotoBomb
+module github.com/Dominikk7/PhotoBomb
 
 go 1.19
 

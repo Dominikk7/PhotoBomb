@@ -1,7 +1,7 @@
 package database
 
 import (
-	entities "github.com/tannergarcia/PhotoBomb/backend/pkg/models"
+	entities "github.com/Dominikk7/PhotoBomb/backend/pkg/models"
 	"log"
 
 	"gorm.io/driver/mysql"
@@ -9,7 +9,6 @@ import (
 )
 
 const DB_USERNAME = "root"
-const DB_PASSWORD = ""
 const DB_NAME_I = "images"
 const DB_NAME_U = "users"
 const DB_HOST = "127.0.0.1"
@@ -19,7 +18,7 @@ var ImageInstance *gorm.DB
 var UserInstance *gorm.DB
 var err error
 
-func Connect() {
+func Connect(DB_PASSWORD string) {
 	//Image DB
 	dsn := DB_USERNAME + ":" + DB_PASSWORD + "@tcp" + "(" + DB_HOST + ":" + DB_PORT + ")/" + DB_NAME_I + "?" + "parseTime=true&loc=Local"
 	ImageInstance, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
